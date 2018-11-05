@@ -1,0 +1,50 @@
+var personOne = {
+		'id' : 1,
+		'name' : 'Nick Knazeev',
+		'username' : 'Abbadon',
+		'email' : 'DarkCrusade@DieLoyaliScum.varp',
+			'address' : {
+			 		'street': 'Kulas Light',
+      				'suite': 'Apt. 556',
+      				'city': 'Gwenborough',
+      				'zipcode': '92998-3874',
+      					'geo': {
+        					'lat': '-37.3159',
+        					'lng': '81.1496'
+      					}
+			},
+		'phone': '1-770-736-8031 x56442',
+    	'website': 'hildegard.org',
+    	'company': {
+      		'name': 'Romaguera-Crona',
+      		'catchPhrase': 'Multi-layered client-server neural-net',
+      		'bs': 'harness real-time e-markets'
+    		}
+		}
+
+
+
+
+		function deepCopy(obj) {
+			var clone = {};
+			for (var key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					if ('object' === typeof obj[key]) {
+						clone[key] = deepCopy(obj[key]);
+					} else {
+						clone[key] = obj[key];
+					}
+				}
+			}
+			return clone;
+		}
+    
+    
+    
+    
+
+		var personClone = deepCopy(personOne);
+		
+		personOne.address.geo.lat = '-47.3159';
+		
+		console.log(personClone.address.geo.lat);
